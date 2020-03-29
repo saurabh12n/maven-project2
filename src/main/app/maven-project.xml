@@ -25,12 +25,4 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <logger level="INFO" doc:name="Logger"/>
     </flow>
     
-    <flow name="retrieveFlights">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/flights" doc:name="HTTP"/>
-        <db:select config-ref="Derby_Configuration" doc:name="Database">
-            <db:parameterized-query><![CDATA[SELECT * FROM FLIGHTS]]></db:parameterized-query>
-        </db:select>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
-    </flow>
-    
 </mule>
